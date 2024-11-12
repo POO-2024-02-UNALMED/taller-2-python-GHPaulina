@@ -1,11 +1,9 @@
 class Asiento:
-    # Con el inicializador creo los atributos de instancia
     def __init__(self, color, precio, registro):
         self.color = color
         self.precio = precio
         self.registro = registro
 
-    # Los metodos de instancia llevan siempre como primer parámetro la palabra self
     def cambiarColor(self, color):
         if color == "rojo" or color == "verde" or color == "amarillo" or color == "negro" or color == "blanco":
             # Luego de verificar que esté entre los permitidos
@@ -59,25 +57,3 @@ class Auto:
                     return "Las piezas no son originales"
             return "Auto original"
         return "Las piezas no son originales"
-
-
-# Prueba del código
-
-def testMetodoVerificarIntegridad():
-    # Creando objetos Asiento y Motor
-    a1 = Auto("model 3", 33000, [Asiento("blanco", 5000, 32), None, None, Asiento("blanco", 5000, 32), None],
-              "tesla", Motor(4, "electrico", 32), 32)
-    a2 = Auto("model 3", 33000, [Asiento("blanco", 5000, 40), None, None, Asiento("blanco", 5000, 32), None],
-              "tesla", Motor(4, "electrico", 32), 32)
-
-    # Verificación de integridad
-    ok = False
-    if (a1.verificarIntegridad() == "Auto original" and
-            a2.verificarIntegridad() == "Las piezas no son originales"):
-        ok = True
-
-    print(ok)  # Imprime True si la verificación es correcta
-
-
-# Ejecutar prueba
-testMetodoVerificarIntegridad()
